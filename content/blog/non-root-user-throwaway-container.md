@@ -1,6 +1,6 @@
 +++
 title = "Do you need a non-root user in a throwaway container?"
-date = 2026-10-13
+date = 2026-10-12
 description = "When the usual best practice doesn't pay off."
 draft = true
 [taxonomies]

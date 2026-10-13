@@ -1,6 +1,6 @@
 +++
 title = "Helix and Neovim side by side"
-date = 2026-10-13
+date = 2026-10-12
 description = "Why I have both editors set up, and when I reach for each."
 draft = true
 [taxonomies]
