@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} · {{ config.title }}{% endblock title %}
+
+{% block content %}
+  <h1>{{ section.title }}</h1>
+  {{ section.content | safe }}
+  <ul class="project-list">
+    {% for p in section.pages %}
+      <li>
+        <a href="{{ p.permalink }}"><strong>{{ p.title }}</strong></a>
+        {% if p.description %}<p>{{ p.description }}</p>{% endif %}
+        <p class="meta">
+          {% if p.extra.repo %}<a href="{{ p.extra.repo }}">Source</a>{% endif %}
+          {% if p.extra.demo %} · <a href="{{ p.extra.demo }}">Demo</a>{% endif %}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

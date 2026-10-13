@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} · {{ config.title }}{% endblock title %}
+
+{% block content %}
+  <h1>{{ section.title }}</h1>
+  {{ section.content | safe }}
+  <div class="album-grid">
+    {% for album in section.pages %}
+      <a class="album" href="{{ album.permalink }}">
+        {% for asset in album.assets | sort %}
+          {% if asset | lower | split(pat=".") | last in ["jpg", "jpeg", "png", "webp"] %}
+            {% set cover = resize_image(path=asset, width=600, height=400, op="fill", format="auto", quality=85) %}
+            <img src="{{ cover.url }}" width="{{ cover.width }}" height="{{ cover.height }}" alt="" loading="lazy">
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        <span>{{ album.title }}</span>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock content %}

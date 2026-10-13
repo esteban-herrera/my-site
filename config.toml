@@ -1,0 +1,26 @@
+# Change this to your real domain before deploying.
+base_url = "https://example.com"
+title = "My Site"
+description = "Notes, projects, and photographs."
+default_language = "en"
+
+compile_sass = false
+build_search_index = false
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+taxonomies = [
+    { name = "tags", feed = true },
+]
+
+[markdown]
+smart_punctuation = true
+
+[extra]
+author = "Your Name"
+menu = [
+    { name = "Blog", path = "@/blog/_index.md" },
+    { name = "Projects", path = "@/projects/_index.md" },
+    { name = "Photos", path = "@/photos/_index.md" },
+    { name = "About", path = "@/about.md" },
+]

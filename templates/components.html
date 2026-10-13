@@ -1,0 +1,24 @@
+{# Components are registered globally: no import needed. Use them in templates or in Markdown. #}
+
+{% component post_list(pages) %}
+<ul class="post-list">
+  {% for p in pages %}
+    <li>
+      <time datetime="{{ p.date }}">{{ p.date | date(format="%b %d, %Y") }}</time>
+      <a href="{{ p.permalink }}">{{ p.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endcomponent post_list %}
+
+{#
+  Responsive image for posts. `src` is relative to the content folder, e.g.
+  {{<figure src="blog/my-post/photo.jpg" alt="..." caption="..." />}}
+#}
+{% component figure(src: string, alt: string = "", caption: string = "") %}
+{% set img = resize_image(path=src, width=1400, height=1400, op="fit", format="auto", quality=85) %}
+<figure>
+  <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ alt }}" loading="lazy">
+  {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+</figure>
+{% endcomponent figure %}
