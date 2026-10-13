@@ -1,6 +1,6 @@
-# Change this to your real domain before deploying.
-base_url = "https://example.com"
-title = "My Site"
+# The deploy workflow overrides this with the GitHub Pages URL automatically.
+base_url = "https://esteban-herrera.github.io/my-site"
+title = "estie"
 description = "Notes, projects, and photographs."
 default_language = "en"
 
@@ -17,7 +17,7 @@ taxonomies = [
 smart_punctuation = true
 
 [extra]
-author = "Your Name"
+author = "Esteban Herrera"
 menu = [
     { name = "Blog", path = "@/blog/_index.md" },
     { name = "Projects", path = "@/projects/_index.md" },
